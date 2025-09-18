@@ -14,8 +14,8 @@ level: u4,
 window: u4,
 zstream: zlib.z_stream,
 outbuf: []u8,
-underlying_writer: *std.io.Writer,
-writer: std.io.Writer,
+underlying_writer: *std.Io.Writer,
+writer: std.Io.Writer,
 
 pub const Options = struct {
     allocator: std.mem.Allocator,
@@ -28,7 +28,7 @@ pub const Options = struct {
     // input and output buffer size
     bufsize: usize = BUFSIZE,
     // output writer
-    writer: *std.io.Writer,
+    writer: *std.Io.Writer,
 };
 
 pub fn init(opt: Self.Options) !Self {
